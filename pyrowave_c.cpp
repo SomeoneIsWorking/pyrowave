@@ -52,7 +52,7 @@ void pyrowave_device_set_command_buffer(pyrowave_device device, VkCommandBuffer 
 	device->cmd = cmd;
 }
 
-VkQueueGlobalPriority pyrowave_device_get_global_priority(pyrowave_device device)
+VkQueueGlobalPriorityKHR pyrowave_device_get_global_priority(pyrowave_device device)
 {
 	return device->device.get_device_features().global_compute_priority;
 }
@@ -64,7 +64,7 @@ pyrowave_result pyrowave_create_device_by_compat(
 		const pyrowave_uuid *device_uuid, // If non-NULL, needs to match VkPhysicalDeviceIDProperties::deviceUUID
 		const pyrowave_uuid *driver_uuid, // If non-NULL, needs to match VkPhysicalDeviceIDProperties::driverUUID
 		const pyrowave_luid *device_luid, // If non-NULL, needs to match VkPhysicalDeviceIDProperties::deviceLUID
-		VkQueueGlobalPriority global_priority,
+		VkQueueGlobalPriorityKHR global_priority,
 		pyrowave_device *device)
 {
 	// TODO: Find a better way to do this.

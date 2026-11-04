@@ -163,13 +163,13 @@ PYROWAVE_PUBLIC_API pyrowave_result pyrowave_create_device_by_compat(
 	// Only affects the compute queue. If HIGH or REALTIME is used,
 	// the device is automatically set to use async compute queues as per pyrowave_device_set_queue_type.
 	// If unsure, use VK_QUEUE_GLOBAL_PRIORITY_MEDIUM.
-	VkQueueGlobalPriority global_priority,
+	VkQueueGlobalPriorityKHR global_priority,
 	pyrowave_device *device);
 
 // Even if HIGH or REALTIME is requested, the system may not allow it.
 // On Linux at least, the process needs either root or CAP_SYS_NICE permissions to request > MEDIUM.
 // MEDIUM is the normal default.
-PYROWAVE_PUBLIC_API VkQueueGlobalPriority pyrowave_device_get_global_priority(pyrowave_device device);
+PYROWAVE_PUBLIC_API VkQueueGlobalPriorityKHR pyrowave_device_get_global_priority(pyrowave_device device);
 
 // For performance debugging, reports GPU timestamps.
 PYROWAVE_PUBLIC_API void
